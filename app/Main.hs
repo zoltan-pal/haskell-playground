@@ -1,6 +1,6 @@
 module Main where
 
-import FizzBuzz
+import Primes
 
 main :: IO ()
-main = listFizzBuzz [1..100]
+main = printPrimes 0 100
