@@ -1,6 +1,6 @@
 module Main where
 
-import           FizzBuzz
+import FizzBuzz
 
 main :: IO ()
 main = listFizzBuzz [1..100]

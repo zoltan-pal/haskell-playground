@@ -10,7 +10,7 @@ convertToFizzBuzz x
   | otherwise         = show x
 
 listFizzBuzz :: [Int] -> IO()
-listFizzBuzz [] = putStrLn ""
+listFizzBuzz [] = return ()
 listFizzBuzz (x:xs)
   | null xs = putStrLn (convertToFizzBuzz x)
   | otherwise = do
