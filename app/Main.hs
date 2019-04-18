@@ -1,6 +1,8 @@
 module Main where
 
-import Primes
+import BinaryNumberConverter
 
 main :: IO ()
-main = printPrimes 0 100
+main = do
+  putStrLn ("129 in binary is " ++ binaryFromInt 129)
+  putStrLn ("01010101 in decimal is " ++ (show (binaryToInt "01010101")))
