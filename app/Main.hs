@@ -1,8 +1,29 @@
 module Main where
 
-import BinaryNumberConverter
+import Assert
 
-main :: IO ()
+main :: IO()
 main = do
-  putStrLn ("129 in binary is " ++ binaryFromInt 129)
-  putStrLn ("01010101 in decimal is " ++ (show (binaryToInt "01010101")))
+  let assertionsOnNumerics = [
+        Assertion 1 2 (/=),
+        Assertion 0 0 (==),
+        Assertion 0.2 0.1 (>)]
+      assertionsOnCharacters = [
+        Assertion 'a' 'a' (==),
+        Assertion 'a' 'b' (<)]
+      assertionsOnStrings = [
+        Assertion "foo" "foo" (==),
+        Assertion "bar" "baz" (/=)]
+      assertionsOnLists = [
+        Assertion [] [] (==),
+        Assertion [1..3] [1..3] (==),
+        Assertion [5, 4..1] [1..5] (/=)]
+      assertionCheckShouldFailOnFirst = [
+        Assertion 1 2 (==),
+        Assertion 0 0 (==)]
+
+  print $ checkAssertions assertionsOnNumerics
+  print $ checkAssertions assertionsOnCharacters
+  print $ checkAssertions assertionsOnStrings
+  print $ checkAssertions assertionsOnLists
+  print $ checkAssertions assertionCheckShouldFailOnFirst
